@@ -18,10 +18,11 @@ tax <- dados[ ,3:61] # resposta: taxons amostrados em cada trecho de riacho
 
 
 # TITAN ####
-res_titan <- titan(agri, tax) # titan para cada taxon
+res_titan <- titan(agri, tax, boot = FALSE) # apenas para testar.
+res_titan <- titan(agri, tax, boot = TRUE) # titan para cada taxon.
 write.table(res_titan$sppmax, "./outputs/res_titan_tax.txt", sep = "\t") # salvando
 
-res_titan$sumz.cp # titan considerando toda a comunidade.
+res_titan$sumz.cp # titan considerando toda a comunidade. Precisa do boot = TRUE
 write.table(res_titan$sumz.cp, "./outputs/res_titan_sumz.txt", sep = "\t") # salvando
 
 # Alguns Plots titan ####
